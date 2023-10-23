@@ -34,12 +34,12 @@ def main():
     fd.close()
     num_lines = len(file_lines)
     file_lines = sorted(file_lines, key=lambda x: len(x))
-    running = []
+    prog = []
     for line in file_lines:
-        running.append(initialize_process(int(line)))
-    for p in running:
+        prog.append(initialize_process(int(line)))
+    for p in prog:
         p.start()
-    for p in running:
+    for p in prog:
         p.join()
     end_t = time()
     print("Time to run =", (end_t - start_t))
